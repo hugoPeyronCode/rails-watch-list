@@ -1,0 +1,13 @@
+
+
+<br>
+
+<div class="container">
+<h1>Create a new List</h1>
+<%= simple_form_for @list do |f| %>
+  <%= f.input :name %>
+  <%= f.submit class:"btn btn-success" %>
+<% end %>
+
+<h3><%= link_to "Back to list", lists_path, class:"btn btn-light" %></h3>
+</div>

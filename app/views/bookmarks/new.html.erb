@@ -1,0 +1,14 @@
+<h1>Bookmarks#new</h1>
+<p>Find me in app/views/bookmarks/new.html.erb</p>
+<br>
+
+<div class="container">
+<h1>Create a new Bookmark</h1>
+<%= simple_form_for [@list, @bookmark], url: list_bookmarks_path(@list) do |f| %>
+  <%= f.input :comment %>
+  <%= f.input :movie_id, collection: Movie.all, include_blank: "Select a movie", input_html: {class: "form-control selectpicker", "data-live-search": "true", "data-style": "btn-outline-secondary"}%>
+  <%= f.submit class:"btn btn-success" %>
+<% end %>
+
+<h3><%= link_to "Back to list", list_path(@list), class:"btn btn-light" %></h3>
+</div>

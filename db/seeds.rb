@@ -5,3 +5,23 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+require 'faker'
+
+puts "Erase previous seed"
+Movie.destroy_all
+
+puts "Starting seeding some movies..."
+
+# Create 15 movies
+15.times do
+  movie = Movie.create!(
+    title: Faker::Movie.title,
+    overview: Faker::Lorem.paragraph_by_chars,
+    poster_url: Faker::Internet.url,
+    rating: rand(0.0..10.0).round(1)
+  )
+  puts "#{movie.title} created"
+end
+
+puts "Seeding done."
